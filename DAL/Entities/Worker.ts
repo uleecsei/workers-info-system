@@ -3,5 +3,5 @@ export class Worker{
     public workerId: number;
     public firstName: string;
     public lastName: string;
-    public post: Post[];
+    public posts: Post[];
 }
