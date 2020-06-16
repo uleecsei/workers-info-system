@@ -1,3 +1,4 @@
+export {}; // fixing block scope variable issue
 const {Schema, model, Types} = require('mongoose');
 
 

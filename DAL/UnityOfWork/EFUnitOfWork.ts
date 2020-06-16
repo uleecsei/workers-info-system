@@ -3,8 +3,8 @@ import WorkerRepository from "../Repository/Impl/WorkerRepository";
 import PostRepository from "../Repository/Impl/PostRepository";
 
 module.exports = class EFUnitOfWork implements IUnitOfWork{
-    WorkerRepo: WorkerRepository;
-    PostRepo: PostRepository;
+    WorkerRepo!: WorkerRepository;
+    PostRepo!: PostRepository;
     constructor(){}
     get Workers(){
         if(!this.WorkerRepo){
