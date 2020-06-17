@@ -12,21 +12,19 @@ const sinon = require('sinon');
 
 describe("WorkerService", () => {
   it("should inject IUnitWork and SecurityContext", () => {
-    const eFUnitOfWork = new EFUnitOfWork();
-    const user = new User(1, "Oleksii", "Admin");
-    const securityContext = new SecurityContext(user);
-    const workerService = new WorkerService(eFUnitOfWork, securityContext);
-    const mockWorkerService = sinon.mock(workerService);
-    expect(mockWorkerService).to.have.property('iUnitOfWork').that.instanceof("IUnitOfWork");
-    expect(mockWorkerService).to.have.property('securityContext').that.instanceof("SecurityContext");
+    const eFUnitOfWorkMock = sinon.mock(new EFUnitOfWork());
+    const userMock = sinon.mock(new User(1, "Oleksii", "Admin"));
+    const securityContextMock = sinon.mock(new SecurityContext(userMock));
+    const workerService = new WorkerService(eFUnitOfWorkMock, securityContextMock);
+    expect(workerService).to.have.property('iUnitOfWork').that.instanceof("IUnitOfWork");
+    expect(workerService).to.have.property('securityContext').that.instanceof("SecurityContext");
   });
   it("should return Post | null | undefined", () => {
-    const eFUnitOfWork = new EFUnitOfWork();
-    const user = new User(1, "Oleksii", "Admin");
-    const securityContext = new SecurityContext(user);
-    const workerService = new WorkerService(eFUnitOfWork, securityContext);
-    const mockWorkerService = sinon.mock(workerService);
-    expect(mockWorkerService.GetWorkerPost(1)).to.be.instanceof(null||undefined||Post);
+    const eFUnitOfWorkMock = sinon.mock(new EFUnitOfWork());
+    const userMock = sinon.mock(new User(1, "Oleksii", "Admin"));
+    const securityContextMock = sinon.mock(new SecurityContext(userMock));
+    const workerService = new WorkerService(eFUnitOfWorkMock, securityContextMock);
+    expect(workerService.GetWorkerPost(1)).to.be.instanceof(null||undefined||Post);
   })
 });
 
