@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/uleecsei/workers-info-system#readme",
   "dependencies": {
-    "@types/node": "^14.0.13"
+    "@types/node": "^14.0.13",
+    "sinon": "^9.0.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
